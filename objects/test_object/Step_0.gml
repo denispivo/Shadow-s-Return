@@ -5,7 +5,8 @@ var _right = keyboard_check(ord("D"));
 var _left = keyboard_check(ord("A"));
 
 // movement up and down
-var _jump_pressed = keyboard_check(ord("W"));
+var _jump_pressed = keyboard_check_pressed(ord("W"));
+var _jump_hold = keyboard_check(ord("W"));
 var _is_on_ground = place_meeting(x, y + 1, obj_test_object_2);
 
 // ----------- horizontal movement -----------
@@ -38,11 +39,22 @@ if (place_meeting(x, y + vertival_movement, obj_test_object_2)){
 		y += sign(vertival_movement);
 	}
 	vertival_movement = 0;
+} else if (jump_count == 0){
+	jump_count = 1;
+}
+
+if (_is_on_ground){
+	jump_count = 0;
 }
 
 // jump if player is on the ground
-if (_is_on_ground and _jump_pressed){
-	vertival_movement -= jump_heigth;
+if (_jump_pressed and jump_count < jump_max){
+	jump_count++;
+	jump_timer = jump_hold_frame;
+}
+
+if (!_jump_hold){
+	jump_timer = 0;
 }
 
 if (jump_timer > 0) {
