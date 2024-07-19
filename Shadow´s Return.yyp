@@ -33,10 +33,18 @@
     "IDEVersion":"2024.6.2.162",
   },
   "name":"Shadow´s Return",
-  "resources":[],
+  "resources":[
+    {"id":{"name":"obj_test_object_2","path":"objects/obj_test_object_2/obj_test_object_2.yy",},},
+    {"id":{"name":"test_object","path":"objects/test_object/test_object.yy",},},
+    {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
+    {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},},
+    {"id":{"name":"TestSprite","path":"sprites/TestSprite/TestSprite.yy",},},
+  ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
-  "RoomOrderNodes":[],
+  "RoomOrderNodes":[
+    {"roomId":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
+  ],
   "templateType":"game",
   "TextureGroups":[
     {"$GMTextureGroup":"","%Name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Default","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
