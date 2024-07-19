@@ -1,32 +1,55 @@
-/// @description Insert description here
-// You can write your code in this editor
+// ----------- inputs -----------
+
+// movement left and right
 var _right = keyboard_check(ord("D"));
 var _left = keyboard_check(ord("A"));
-var _up = keyboard_check(ord("W"));
-var _down = keyboard_check(ord("S"));
 
-var _xinput = _right - _left;
-var _yinput = _down - _up;
+// movement up and down
+var _jump_pressed = keyboard_check(ord("W"));
+var _is_on_ground = place_meeting(x, y + 1, obj_test_object_2);
 
-var _x_movement = _xinput * my_speed;
-var _y_movement = _yinput * my_speed_jump;
+// ----------- horizontal movement -----------
 
-var _any_key_pressed = false;
+// calculate the movement direction
+var _x_movement = (_right - _left) * my_speed;
 
-if(_up or _down){
-
-	_any_key_pressed = true;
-
+// collision check, if you run against a wall
+if (place_meeting(x + _x_movement, y, obj_test_object_2)){
+	// move as close to the object as possible
+	while (!place_meeting(x + sign(_x_movement), y, obj_test_object_2)){
+		x += sign(_x_movement);
+	}
+	_x_movement = 0;
 }
 
-if (!place_meeting(x, y + 1, obj_test_object_2) and !_any_key_pressed)
-{
-    _y_movement = my_speed_jump;
+// final movement
+x += _x_movement;
+
+
+// ----------- vertical movement -----------
+
+// calculate the movement direction
+vertival_movement += grv;
+
+// collision check, if you jump to the ceiling or fall on the ground
+if (place_meeting(x, y + vertival_movement, obj_test_object_2)){
+	// move as close to the object as possible
+	while (!place_meeting(x, y + sign(vertival_movement), obj_test_object_2)){
+		y += sign(vertival_movement);
+	}
+	vertival_movement = 0;
 }
 
-if (!place_meeting(x, y + 1, obj_test_object_2))
-{
-    _up = 0;
+// jump if player is on the ground
+if (_is_on_ground and _jump_pressed){
+	vertival_movement -= jump_heigth;
 }
 
-move_and_collide(_x_movement, _y_movement, obj_test_object_2);
+if (jump_timer > 0) {
+	vertival_movement = jump_heigth;
+	
+	jump_timer--;
+}
+
+// final movement
+y += vertival_movement;
