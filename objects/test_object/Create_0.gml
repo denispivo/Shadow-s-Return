@@ -1,4 +1,8 @@
-// variables
+//HP
+health_points = 10;
+health_points_max = 10;
+
+// variables for movement
 grv = 0.3;
 mvsp = 4;
 
@@ -9,7 +13,7 @@ _x_movement = 0;
 _y_movement = 0;
 jump_heigth = -6;
 
-jump_max = 2;
+jump_max = 1;
 jump_count = 0;
 
 jump_hold_frame = 15;
