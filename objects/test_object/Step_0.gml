@@ -30,16 +30,25 @@ x += _x_movement;
 // ----------- vertical movement -----------
 
 // calculate the movement direction
-vertival_movement += grv;
+vertical_movement += grv;
 
-// collision check, if you jump to the ceiling or fall on the ground
-if (place_meeting(x, y + vertival_movement, obj_test_object_2)){
+// collision check, iffall on the ground
+if (place_meeting(x, y + vertical_movement, obj_test_object_2)){
 	// move as close to the object as possible
-	while (!place_meeting(x, y + sign(vertival_movement), obj_test_object_2)){
-		y += sign(vertival_movement);
+	while (!place_meeting(x, y + sign(vertical_movement), obj_test_object_2)){
+		y += sign(vertical_movement);
 	}
-	vertival_movement = 0;
-} 
+	vertical_movement = 0;
+}
+
+// collision check, if you jump to the ceiling
+function _is_ceiling () {
+	if (place_meeting(x, y - 1, obj_test_object_2)){
+		return true;
+	}
+	return false;
+}
+
 
 if (_is_on_ground){
 	jump_count = 0;
@@ -59,10 +68,14 @@ if (!_jump_hold){
 }
 
 if (jump_timer > 0) {
-	vertival_movement = jump_heigth;
-	
-	jump_timer--;
+	if (_is_ceiling()) {
+		vertical_movement = 0;
+		jump_timer = 0;
+	} else {
+		vertical_movement = jump_heigth;
+		jump_timer--;
+	}
 }
 
 // final movement
-y += vertival_movement;
+y += vertical_movement;
