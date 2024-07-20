@@ -39,13 +39,14 @@ if (place_meeting(x, y + vertival_movement, obj_test_object_2)){
 		y += sign(vertival_movement);
 	}
 	vertival_movement = 0;
+} 
+
+if (_is_on_ground){
+	jump_count = 0;
 } else if (jump_count == 0){
 	jump_count = 1;
 }
 
-if (_is_on_ground){
-	jump_count = 0;
-}
 
 // jump if player is on the ground
 if (_jump_pressed and jump_count < jump_max){
