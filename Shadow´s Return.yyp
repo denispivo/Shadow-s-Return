@@ -35,10 +35,12 @@
   "name":"Shadow´s Return",
   "resources":[
     {"id":{"name":"obj_test_object_2","path":"objects/obj_test_object_2/obj_test_object_2.yy",},},
+    {"id":{"name":"test_light_source","path":"objects/test_light_source/test_light_source.yy",},},
     {"id":{"name":"test_object","path":"objects/test_object/test_object.yy",},},
     {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
     {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},},
     {"id":{"name":"Sprite3","path":"sprites/Sprite3/Sprite3.yy",},},
+    {"id":{"name":"Sprite4","path":"sprites/Sprite4/Sprite4.yy",},},
     {"id":{"name":"TestSprite","path":"sprites/TestSprite/TestSprite.yy",},},
   ],
   "resourceType":"GMProject",
