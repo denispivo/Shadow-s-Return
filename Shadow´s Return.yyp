@@ -38,6 +38,7 @@
     {"id":{"name":"test_object","path":"objects/test_object/test_object.yy",},},
     {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
     {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},},
+    {"id":{"name":"Sprite3","path":"sprites/Sprite3/Sprite3.yy",},},
     {"id":{"name":"TestSprite","path":"sprites/TestSprite/TestSprite.yy",},},
   ],
   "resourceType":"GMProject",
