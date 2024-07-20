@@ -58,7 +58,7 @@ if (_is_on_ground){
 
 
 // jump if player is on the ground
-if (_jump_pressed and jump_count < jump_max){
+if (_jump_hold and jump_count < jump_max){
 	jump_count++;
 	jump_timer = jump_hold_frame;
 }
