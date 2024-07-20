@@ -49,13 +49,12 @@ function _is_ceiling () {
 	return false;
 }
 
-
+// if player is on the ground he can jump again, because of the jump_count
 if (_is_on_ground){
 	jump_count = 0;
 } else if (jump_count == 0){
 	jump_count = 1;
 }
-
 
 // jump if player is on the ground
 if (_jump_hold and jump_count < jump_max){
@@ -63,11 +62,14 @@ if (_jump_hold and jump_count < jump_max){
 	jump_timer = jump_hold_frame;
 }
 
+// stop the jump to have a shorter jump
 if (!_jump_hold){
 	jump_timer = 0;
 }
 
+// modify the vertical_movement as long as the jump duration is active
 if (jump_timer > 0) {
+	// if you hit a ceiling you cant jump further, if not you jump further
 	if (_is_ceiling()) {
 		vertical_movement = 0;
 		jump_timer = 0;
