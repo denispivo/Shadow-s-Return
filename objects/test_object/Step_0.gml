@@ -69,7 +69,7 @@ if (!_jump_hold){
 
 // modify the vertical_movement as long as the jump duration is active
 if (jump_timer > 0) {
-	// if you hit a ceiling you cant jump further, if not you jump further
+	// if object hit a ceiling object can´t go up further, if not objects up further
 	if (_is_ceiling()) {
 		vertical_movement = 0;
 		jump_timer = 0;
