@@ -1,10 +1,11 @@
 //HP
-health_points = 10;
-health_points_max = 10;
+global.health_points = 100;
+health_points_max = 100;
 
 // variables for movement
 mvsp = 4;
 light_slow = 1.5;
+dash = 50;
 
 // horizontal movement
 _x_movement = 0;

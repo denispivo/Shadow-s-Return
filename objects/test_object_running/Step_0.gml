@@ -5,6 +5,7 @@ var _right = keyboard_check(ord("D"));
 var _left = keyboard_check(ord("A"));
 var _up = keyboard_check(ord("W"));
 var _down = keyboard_check(ord("S"));
+var _dash = keyboard_check_pressed(vk_space);
 
 // ----------- movement -----------
 #region
@@ -14,6 +15,19 @@ var _down = keyboard_check(ord("S"));
 	
 	// calculate the y movement direction
 	_y_movement = (_down - _up) * mvsp;
+
+#endregion
+
+// ----------- dash -----------
+#region
+
+	if (_dash) {
+		// calculate the x movement direction for the dash
+		_x_movement += (_right - _left) * dash;
+	
+		// calculate the y movement direction for the dash
+		_y_movement += (_down - _up) * dash;
+	}
 
 #endregion
 
@@ -38,13 +52,23 @@ var _down = keyboard_check(ord("S"));
 		_y_movement = 0;
 	}
 	
-	// collision check, if you run against a wall or an object
+	// collision check, if you run into light
 	if (place_meeting(x, y, light)){
+		//slow the object
 		_x_movement += (sign(_x_movement) * light_slow) * (-1);
 		_y_movement += (sign(_y_movement) * light_slow) * (-1);
+		// decrease the hp
+		global.health_points -= 1;
+	}
+	
+	// restarts the game if hp drop to 0
+	if (global.health_points <= 0) {
+		game_restart();
 	}
 
+
 #endregion
+
 
 // final movement in x and y direction
 #region
