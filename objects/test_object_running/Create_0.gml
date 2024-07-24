@@ -1,6 +1,11 @@
-//HP
-global.health_points = 100;
+// time you can stay in the light, calles health
+	// bar increases and resets game if the bar is full
+global.health_points = 0;
 health_points_max = 100;
+health_dmg = 1;
+health_regen = 1;
+
+dmg_timer = 0;
 
 // variables for movement
 mvsp = 4;
