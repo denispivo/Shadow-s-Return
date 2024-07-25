@@ -3,9 +3,9 @@
 global.health_points = 0;
 health_points_max = 100;
 health_dmg = 1;
-health_regen = 1;
+health_regen = 0.5;
 
-dmg_timer = 0;
+global.light_points = 1;
 
 // variables for movement
 mvsp = 4;

@@ -52,29 +52,21 @@ var _dash = keyboard_check_pressed(vk_space);
 		_y_movement = 0;
 	}
 	
-	if(place_meeting(x, y, light)){
-		dmg_timer = 10;
-	}
 	// collision check, if you run into light
-	if (place_meeting(x, y, light) or dmg_timer > 0){
-
+	if (place_meeting(x, y, light)){
 		//slow the object
 		_x_movement += (sign(_x_movement) * light_slow) * (-1);
 		_y_movement += (sign(_y_movement) * light_slow) * (-1);
 		// increase the stay in light bar
 		global.health_points += health_dmg;
+	} else if (global.health_points > 0) {
+		global.health_points -= health_regen;
 	}
 	
 	// decrease stay in light bar, if you are not in the light
-	if (!place_meeting(x, y, light) and global.health_points > 0 and dmg_timer = 0) {
-		
-		global.health_points -= health_regen;
-	}
-	if (dmg_timer > 0) {
-		dmg_timer -= 1;
-	}
 
-	show_debug_message(dmg_timer);
+
+	show_debug_message(global.health_points);
 	
 	// restarts the game if stay in light bar is full
 	if (global.health_points >= health_points_max) {
