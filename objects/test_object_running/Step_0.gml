@@ -62,12 +62,7 @@ var _dash = keyboard_check_pressed(vk_space);
 	} else if (global.health_points > 0) {
 		global.health_points -= health_regen;
 	}
-	
-	// decrease stay in light bar, if you are not in the light
 
-
-	show_debug_message(global.health_points);
-	
 	// restarts the game if stay in light bar is full
 	if (global.health_points >= health_points_max) {
 		game_restart();
