@@ -1,5 +1,7 @@
 # Game: Shadow´s Return
 
+Made with GameMaker.
+
 Go test the game on here:
 https://denispivo.itch.io/shadowsreturn
 
