@@ -1,5 +1,6 @@
 # Game: Shadow´s Return
 
-1. Download GitHub Desktop und verbinde es mit deinem Konto auf GitHub.
-2. Verbinde das Repository mit GitHub Desktop
-3. Projekt über GameMaker öffnen
+Go test the game on here:
+https://denispivo.itch.io/shadowsreturn
+
+Worked on that game for a Game Jam, but had too less time to spend on it.
